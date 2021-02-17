@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import sanityClient from "../client";
 
-const Project = () => {
+const Projects = () => {
   const [projectData, setProjectData] = useState(null);
 
   useEffect(() => {
@@ -23,11 +23,13 @@ const Project = () => {
   console.log(projectData);
 
   return (
-    <main className="bg-green-100 min-h-screen p-12">
+    <main className="bg-gray-800 min-h-screen p-12">
       <section className="container mx-auto">
-        <h1 className="text-5xæ flex justify-center cursive">My Projects</h1>
-        <h2 className="text-lg text-gray-600 flex justify-center mb-12">
-          This is all the projects
+        <h1 className="text-gray-100 text-5xl flex justify-center p-6 font-bold">
+          My Projects
+        </h1>
+        <h2 className="text-lg text-gray-200 flex justify-center mb-12">
+          A section of all my projects
         </h2>
         <section className="grid grid-cols-2 gap-8">
           {projectData &&
@@ -77,4 +79,4 @@ const Project = () => {
   );
 };
 
-export default Project;
+export default Projects;

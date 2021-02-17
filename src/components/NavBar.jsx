@@ -4,37 +4,39 @@ import { SocialIcon } from "react-social-icons";
 
 const NavBar = () => {
   return (
-    <header className="bg-red-600">
+    <header className="bg-gray-200">
       <div className="container mx-auto flex justify-between">
-        <nav className="flex">
+        <div className="py-3 px-3 my-6">
           <NavLink
             to="/"
             exact
             activeClassName="text-white"
-            className="inflex-flex items-center py-6 px-3 my-4 text-red-100 hover:text-green-800 text-4xl font-bold cursive tracking-widest"
+            className="inflex-flex items-center py-6 px-3 my-4 text-gray-700 hover:text-yellow-200 text-4xl font-bold tracking-widest"
           >
             AndersHolt
           </NavLink>
+        </div>
+        <nav className="flex">
           <NavLink
-            to="/post"
-            activeClassName="text-red-100 bg-red-700"
-            className="inline-flex items-center py-3 px-3 my-6 rounded text-red-200 hover:text-green-800"
+            to="/posts"
+            activeClassName="text-gray-100 bg-gray-700"
+            className="inline-flex items-center px-3 my-10 rounded font-bold text-gray-700 hover:text-yellow-200 hover:bg-gray-300"
           >
-            Blog Posts
+            BLOG POSTS
           </NavLink>
           <NavLink
             to="/project"
             activeClassName="text-red-100 bg-red-700"
-            className="inline-flex items-center py-3 px-3 my-6 rounded text-red-200 hover:text-green-800"
+            className="inline-flex items-center px-3 my-10 rounded font-bold text-gray-700 hover:text-yellow-200 hover:bg-gray-300"
           >
-            Projects
+            PROJECTS
           </NavLink>
           <NavLink
             to="about"
             activeClassName="text-red-100 bg-red-700"
-            className="inline-flex items-center py-3 px-3 my-6 rounded text-red-200 hover:text-green-800"
+            className="inline-flex items-center px-3 my-10 rounded font-bold text-gray-700 hover:text-yellow-200 hover:bg-gray-300"
           >
-            About Me!
+            ABOUT ME!
           </NavLink>
         </nav>
         <div className="inline-flex py-3 px-3 my-6">

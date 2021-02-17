@@ -1,15 +1,23 @@
 import React from "react";
-
-// <img src="" alt="" className="absolute object-cover w-full h-full" />
+import Posts from "./Posts";
+import Projects from "./Projects";
+import About from "./About";
 
 const Home = () => {
   return (
     <main>
-      <section className="relative flex justify-center min-h-screen pt-12 lg:pt-64 px-8">
-        <h1 className="text-6xl text-green-100 font-bold cursive leading-none lg:leading-snug home-name">
+      <section className="relative bg-gray-200 flex justify-center min-h-min pb-16 pt-8 lg:pt-16 px-8">
+        <h1 className="text-6xl text-gray-700 font-bold cursive leading-none lg:leading-snug home-name">
           Hallo, I'm Anders.
         </h1>
       </section>
+      <section className="relative bg-gray-800 flex justify-center min-w-min pb-16 pt-8 lg:pt-16 px-8">
+        <h1 className="p-40 text-6xl text-gray-700 font-bold cursive leading-none lg:leading-snug home-name">
+          Hallo, I'm Anders.
+        </h1>
+      </section>
+      <About />
+      <Projects />
     </main>
   );
 };
