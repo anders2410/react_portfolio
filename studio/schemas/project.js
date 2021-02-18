@@ -8,12 +8,29 @@ export default {
       type: "string",
     },
     {
+      name: "slug",
+      title: "Slug",
+      type: "slug",
+      options: {
+        source: "title",
+        maxLength: 96,
+      },
+    },
+    {
       name: "date",
       type: "datetime",
     },
     {
       name: "place",
       type: "string",
+    },
+    {
+      name: "mainImage",
+      title: "Main image",
+      type: "image",
+      options: {
+        hotspot: true,
+      },
     },
     {
       name: "description",
@@ -25,9 +42,9 @@ export default {
       type: "string",
       options: {
         list: [
-          { value: "personal", title: "Personal" },
-          { value: "personal", title: "Client" },
-          { value: "personal", title: "School" },
+          { value: "Personal", title: "Personal" },
+          { value: "Client", title: "Client" },
+          { value: "School", title: "School" },
         ],
       },
     },

@@ -1,5 +1,12 @@
 import React, { useState, useEffect } from "react";
 import sanityClient from "../client";
+import imageUrlBuilder from "@sanity/image-url";
+
+const builder = imageUrlBuilder(sanityClient);
+
+function urlFor(source) {
+  return builder.image(source);
+}
 
 const Projects = () => {
   const [projectData, setProjectData] = useState(null);
@@ -9,8 +16,15 @@ const Projects = () => {
       .fetch(
         `*[_type == "project"]{
       title,
+      slug,
       date,
       place,
+      mainImage{
+        asset->{
+          _id,
+          url
+        }
+      },
       description,
       projectType,
       link,
@@ -29,47 +43,41 @@ const Projects = () => {
           My Projects
         </h1>
         <h2 className="text-lg text-gray-200 flex justify-center mb-12">
-          A section of all my projects
+          A selection of all the projects I have worked on
         </h2>
-        <section className="grid grid-cols-2 gap-8">
+        <section className="grid grid-cols-3 gap-8">
           {projectData &&
             projectData.map((project) => (
-              <article className="relative rounded-lg shadow-xl bg-white p-16">
-                <h3 className="text-gray-800 text-3xl font-bold mb-2 hover:text-red-7000">
-                  <a
-                    href={project.link}
+              <article className="flex flex-col justify-between rounded-lg shadow-xl bg-white">
+                <div>
+                  <img
+                    className="w-full rounded-t-lg h-56"
+                    src={project.mainImage.asset.url}
                     alt={project.title}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    {project.title}
-                  </a>
-                </h3>
-                <div className="text-gray-500 text-xs space-x-4">
-                  <span>
-                    <strong className="font-bold">Finished on</strong>:{" "}
-                    {new Date(project.date).toLocaleDateString()}
-                  </span>
-                  <span>
-                    <strong className="font-bold">Company</strong>:{" "}
-                    {project.place}
-                  </span>
-                  <span>
-                    <strong className="font-bold">Type</strong>:{" "}
-                    {project.projectType}
-                  </span>
-                  <p className="my-6 text-lg text-gray-700 leading-relaxed">
-                    {project.description}
-                  </p>
-                  <a
-                    className="text-red-500 font-bold hover:underline hover:text-red-400"
-                    href={project.link}
-                    alt={project.title}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    View The Project{" "}
-                  </a>
+                  />
+                  <section className="p-6">
+                    <h5 className="text-red-800 text-sm font-bold pb-1">
+                      {project.projectType}
+                    </h5>
+                    <h4 className="text-gray-800 text-xl font-bold mb-2 hover:text-red-700">
+                      {project.title}
+                    </h4>
+                    <div className="text-gray-500 text-xs space-x-4">
+                      <p className="my-2 text-base text-gray-600 leading-relaxed">
+                        {project.description}
+                      </p>
+                    </div>
+                    <div className="">
+                      <img />
+                    </div>
+                  </section>
+                </div>
+                <div className="flex flex-wrap pt-2 p-6">
+                  {project.tags.map((tag) => (
+                    <span className="text-sm font-medium bg-gray-200 py-1 px-2 rounded text-black align-middle mr-2 font-bold">
+                      {tag}
+                    </span>
+                  ))}
                 </div>
               </article>
             ))}
