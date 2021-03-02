@@ -37,12 +37,12 @@ const Projects = () => {
   console.log(projectData);
 
   return (
-    <main className="bg-gray-800 min-h-screen p-12">
+    <main className="bg-gray-800 py-20 px-12">
       <section className="container mx-auto">
-        <h1 className="text-gray-100 text-5xl flex justify-center p-6 font-bold">
+        <h1 className="text-gray-100 text-5xl flex justify-center mb-6 font-bold">
           My Projects
         </h1>
-        <h2 className="text-lg text-gray-200 flex justify-center mb-12">
+        <h2 className="text-2xl text-gray-200 flex justify-center mb-12">
           A selection of all the projects I have worked on
         </h2>
         <section className="grid grid-cols-3 gap-8">
@@ -74,7 +74,10 @@ const Projects = () => {
                 </div>
                 <div className="flex flex-wrap pt-2 p-6">
                   {project.tags.map((tag) => (
-                    <span className="text-sm font-medium bg-gray-200 py-1 px-2 rounded text-black align-middle mr-2 font-bold">
+                    <span
+                      key={tag}
+                      className="text-sm font-medium bg-gray-200 py-1 px-2 rounded text-black align-middle mr-2 font-bold"
+                    >
                       {tag}
                     </span>
                   ))}

@@ -6,7 +6,11 @@ module.exports = {
     serif: ["Merriweather", "serif"],
   }, // or 'media' or 'class'
   theme: {
-    extend: {},
+    extend: {
+      backgroundImage: (theme) => ({
+        "close-up-code": "url('/src/img/close-up-code.jpg')",
+      }),
+    },
   },
   variants: {
     extend: {},
